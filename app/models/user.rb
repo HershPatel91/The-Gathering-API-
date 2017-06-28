@@ -1,8 +1,7 @@
 class User < ApplicationRecord
 	has_many :friendships
-	has_many :users, through: :friendships
-	has_many :guests
-	has_many :parties, through: :guests
-	has_many :admins
-	has_many :parties, through: :admins
+	has_many :friends, class_name: 'User', through: :friendships 
+	has_many :party_guests
+	has_many :parties, through: :party_guests
+	has_many :hosted_parties, class_name:'Party', foreign_key: "admin_id"
 end

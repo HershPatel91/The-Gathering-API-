@@ -1,5 +1,5 @@
 class Party < ApplicationRecord
-	belongs_to :user
-	has_many :guests
-	has_many :users, through: :guests
+	belongs_to :admin, class_name: "User"
+	has_many :party_guests
+	has_many :guests, class_name: "User", through: :party_guests
 end
