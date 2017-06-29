@@ -1,14 +1,19 @@
 class Api::V1::PartiesController < ApplicationController
-  before_action :authorize_user!
+  # before_action :authorize_user!
 
   def index
     parties = Party.all
-    render json: students
+    render json: parties
   end
 
   def create
     party = Party.create(party_params)
     render json: party
+  end
+
+  def show 
+    party = Party.find(params[:id])
+    render json:party
   end
 
   def update
@@ -26,6 +31,6 @@ class Api::V1::PartiesController < ApplicationController
   private
 
   def party_params
-    params.require(:party).permit(:name, :date, :location, :description, :ratings, :admin)
+    params.require(:party).permit(:title, :date, :location, :description, :capacity, :images, :rating, :admin)
   end
 end
