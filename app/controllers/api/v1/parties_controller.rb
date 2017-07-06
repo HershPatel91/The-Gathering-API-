@@ -31,6 +31,6 @@ class Api::V1::PartiesController < ApplicationController
   private
 
   def party_params
-    params.require(:party).permit(:title, :date, :location, :description, :capacity, :image, :rating, :admin_id, :location_area, :cover)
+    params.require(:party).permit(:title, :date, :location, :description, :capacity, :image, :rating, :admin_id, :location_area, :cover, :time)
   end
 end

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	has_secure_password
 	has_many :friendships
 	has_many :friends, class_name: 'User', through: :friendships 
 	has_many :party_guests, foreign_key: "guest_id"
