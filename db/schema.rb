@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20170628142753) do
   create_table "friendships", force: :cascade do |t|
     t.integer "user_id"
     t.integer "related_user_id"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170628142753) do
   create_table "party_guests", force: :cascade do |t|
     t.integer "guest_id"
     t.integer "party_id"
-    t.boolean "approved"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

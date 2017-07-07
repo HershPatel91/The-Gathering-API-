@@ -3,7 +3,7 @@ class CreatePartyGuests < ActiveRecord::Migration[5.1]
     create_table :party_guests do |t|
       t.integer :guest_id
       t.integer :party_id
-      t.boolean :approved
+      t.string :status
 
       t.timestamps
     end

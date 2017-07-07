@@ -14,7 +14,8 @@ class Api::V1::PartyGuestsController < ApplicationController
   def update
     partyguest = PartyGuest.find(params[:id])
     partyguest.update(party_guest_params)
-    render json: partyguest
+    parties = Party.all
+    render json: parties
   end
 
   def destroy
@@ -26,6 +27,6 @@ class Api::V1::PartyGuestsController < ApplicationController
   private
 
   def party_guest_params
-    params.require(:partyguest).permit(:guest_id, :party_id)
+    params.require(:partyguest).permit(:guest_id, :party_id, :status)
   end
 end
