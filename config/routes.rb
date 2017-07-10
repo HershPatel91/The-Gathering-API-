@@ -6,7 +6,7 @@ namespace :api do
       resources :party_guests, only: [:index, :show, :create, :update, :destroy]
       resources :users, only: [:index, :show, :create, :update, :destroy]
       resources :friendships, only: [:index, :show, :create, :update, :destroy]
-      post '/current_user', to: 'auth#create'
+      post '/auth', to: 'auth#create'
       get '/current_user', to: 'auth#show'
     end
   end
