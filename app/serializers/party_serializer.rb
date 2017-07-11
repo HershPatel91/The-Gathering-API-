@@ -4,6 +4,7 @@ class PartySerializer < ActiveModel::Serializer
   has_many :approved_guests, serializer: PartyGuestSerializer
   has_many :applied_guests, serializer: PartyGuestSerializer
   has_many :rejected_guests, serializer: PartyGuestSerializer
+  has_many :messages
 
   def approved_guests
   	PartyGuest.where(party_id: @object.id, status: "approved")
