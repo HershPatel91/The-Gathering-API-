@@ -5,4 +5,5 @@ class Party < ApplicationRecord
 	has_many :guests, class_name: "User", 	through: :party_guests
 	geocoded_by :location  
 	after_validation :geocode 
+	
 end

@@ -8,7 +8,8 @@ class Api::V1::PartyGuestsController < ApplicationController
 
   def create
     partyguest = PartyGuest.create(party_guest_params)
-    render json: partyguest
+    parties = Party.all
+    render json: parties
   end
 
   def update

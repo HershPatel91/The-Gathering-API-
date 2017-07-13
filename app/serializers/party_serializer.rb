@@ -1,5 +1,5 @@
 class PartySerializer < ActiveModel::Serializer
-  attributes :id, :title, :date, :time, :description, :location_area, :location, :capacity, :admin_id, :image, :cover, :latitude, :longitude
+  attributes :id, :title, :date, :time, :format_time, :description, :location_area, :location, :capacity, :admin_id, :image, :cover, :latitude, :longitude
   has_one :admin
   has_many :approved_guests, serializer: PartyGuestSerializer
   has_many :applied_guests, serializer: PartyGuestSerializer
@@ -18,7 +18,7 @@ class PartySerializer < ActiveModel::Serializer
   	  PartyGuest.where(party_id: @object.id, status: "rejected")
   end
 
-  def time
+  def format_time
   	hour = @object.time.slice(0,2).to_i
   	minutes = @object.time.slice(3,5)
   	if hour < 12

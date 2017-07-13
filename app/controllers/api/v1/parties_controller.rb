@@ -2,7 +2,7 @@ class Api::V1::PartiesController < ApplicationController
   # before_action :authorize_user!
 
   def index
-    parties = Party.all
+    parties = Party.all.order('id')
     render json: parties
   end
 
@@ -31,6 +31,6 @@ class Api::V1::PartiesController < ApplicationController
   private
 
   def party_params
-    params.require(:party).permit(:title, :date, :location, :description, :capacity, :image, :rating, :admin_id, :location_area, :cover, :time)
+    params.require(:party).permit(:title, :date, :location, :description, :capacity, :image, :admin_id, :location_area, :cover, :time)
   end
 end
